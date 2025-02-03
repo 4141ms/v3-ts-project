@@ -1,10 +1,8 @@
 <template>
-  <div class="box">hahaha</div>
+  <div class="box">test</div>
 </template>
 
-<script setup lang="ts">
-const a = 'hahah'
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .box {
