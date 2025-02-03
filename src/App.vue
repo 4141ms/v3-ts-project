@@ -1,11 +1,9 @@
 <template>
-  <div class="box">test234</div>
+  <el-button type="primary" size="default" :icon="Search">主要按钮</el-button>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Search } from '@element-plus/icons-vue'
+</script>
 
-<style scoped>
-.box {
-  width: 600px;
-}
-</style>
+<style scoped></style>

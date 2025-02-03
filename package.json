@@ -13,9 +13,13 @@
     "lint:eslint": "eslint src/**/*.{ts,vue} --cache --fix",
     "lint:style": "stylelint src/**/*.{css,scss,vue} --cache --fix",
     "prepare": "husky install",
-    "commitlint": "commitlint --config commitlint.config.cjs -e -V"
+    "commitlint": "commitlint --config commitlint.config.cjs -e -V",
+    "preinstall": "node ./scripts/preinstall.js"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "element-plus": "^2.9.3",
+    "stylelint": "^16.14.1",
     "vue": "^3.5.13"
   },
   "devDependencies": {
@@ -39,7 +43,6 @@
     "prettier": "^3.4.2",
     "sass": "^1.83.4",
     "sass-loader": "^16.0.4",
-    "stylelint": "^16.14.1",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recess-order": "^6.0.0",
     "stylelint-config-recommended-scss": "^14.1.0",
