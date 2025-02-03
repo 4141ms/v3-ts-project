@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-const a = 'hahaha'
+const a = 'hahah'
 </script>
 
 <style scoped>
