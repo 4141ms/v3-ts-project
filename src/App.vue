@@ -1,9 +1,15 @@
 <template>
-  <el-button type="primary" size="default" :icon="Search">主要按钮</el-button>
+  <div>
+    <h1>测试</h1>
+  </div>
 </template>
 
-<script setup lang="ts">
-import { Search } from '@element-plus/icons-vue'
-</script>
+<script setup lang="ts" name="App"></script>
 
-<style scoped></style>
+<style scoped lang="scss">
+div {
+  h1 {
+    color: red;
+  }
+}
+</style>
