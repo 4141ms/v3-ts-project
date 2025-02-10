@@ -41,7 +41,7 @@
 // 获取父组件传递过来的全部路由数组
 let { menuList } = defineProps(['menuList'])
 // 过滤掉隐藏组件
-let list = menuList.filter((item) => {
+let list = menuList.filter((item: any) => {
   if (!item.meta.hidden) return item
 })
 </script>
