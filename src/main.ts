@@ -3,7 +3,7 @@ import { createApp } from 'vue'
 // 引入element-plus插件与样式
 import ElementPlus from 'element-plus'
 // 引入模板的全局的样式
-// import './styles/index.scss'
+import './styles/index.scss'
 //@ts-ignore
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import 'element-plus/dist/index.css'

@@ -21,6 +21,7 @@ export default defineConfig(({ command }) => {
       alias: {
         '@': path.resolve(__dirname, './src'), // 相对路径别名配置，使用 @ 代替 src
       },
+      extensions: ['.js', '.ts', '.tsx', 'jsx', '.json', '.vue'],
     },
     // 版本问题
     // css: {

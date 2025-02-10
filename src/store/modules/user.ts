@@ -6,13 +6,16 @@ import type { UserState } from './types/type'
 // 引入操纵本地存储的工具方法
 import { SET_TOKEN, GET_TOKEN } from '@/utils/token'
 // 引入接口
-import { reqLogin } from '../../api/user'
+import { reqLogin } from '@/api/user'
+// 引入路由（常量路由）
+import { constantRoute } from '../../router/routers'
 
 let useUserStore = defineStore('User', {
   // 小仓库存储数据的地方
   state: (): UserState => {
     return {
       token: GET_TOKEN(),
+      menuRoutes: constantRoute, //仓库存储生成菜单需要数组（路由）
     }
   },
   // 异步 | 逻辑的地方

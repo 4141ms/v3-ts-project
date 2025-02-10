@@ -2,3 +2,16 @@
 @use './reset.scss';
 
 @use './variable.scss';
+
+/* 滚动条外观设置 */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f56c6c;
+}
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: rgb(248, 221, 221);
+  border-radius: 5px;
+}
