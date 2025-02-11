@@ -1,35 +1,48 @@
 <template>
   <div class="layout_container">
     <!-- left menu -->
-    <div class="layout_slider">
+    <div class="layout_slider" :class="{ fold: layoutSetting.fold }">
       <Logo />
       <!-- 展示菜单 -->
       <!-- 滚动组件 -->
       <el-scrollbar class="scrollbar">
         <!-- 菜单组件 -->
-        <el-menu>
+        <el-menu :collapse="layoutSetting.fold" :default-active="$router.path">
           <!-- 根据路由动态生成菜单菜单组件 -->
           <Menu :menuList="userStore.menuRoutes"></Menu>
         </el-menu>
       </el-scrollbar>
     </div>
     <!-- top gav -->
-    <div class="layout_tabbar">456</div>
+    <div class="layout_tabbar" :class="{ fold: layoutSetting.fold }">
+      <Tabber />
+    </div>
     <!-- content show -->
-    <div class="layout_main">
-      789
-      <!-- <p style="height: 10000px; background-color: white"></p> -->
+    <div class="layout_main" :class="{ fold: layoutSetting.fold }">
+      <Main />
     </div>
   </div>
 </template>
 
-<script setup name="" lang="ts">
-import Logo from './logo/index'
-import Menu from './menu/index'
+<script setup name="Tabber" lang="ts">
+// 获取路由对象
+import { useRoute } from 'vue-router'
+import Logo from './logo/index.vue'
+import Menu from './menu/index.vue'
+import Main from './main/index.vue'
+import Tabber from './tabber/index.vue'
 
 // 获取用户相关的小仓库
 import useUserStore from '@/store/modules/user.ts'
+// 获取layout配置相关仓库
+import useLayoutSettingStore from '@/store/modules/setting'
+
 let userStore = useUserStore()
+let layoutSetting = useLayoutSettingStore()
+
+// 获取路由对象
+let $router = useRoute()
+console.log($router.fullPath)
 </script>
 
 <style scope>
@@ -42,6 +55,7 @@ let userStore = useUserStore()
     width: 260px;
     height: 100vh;
     background-color: #f56c6c;
+    transition: all 0.5s;
 
     .scrollbar {
       width: 100%;
@@ -54,6 +68,10 @@ let userStore = useUserStore()
         border-right: none;
       }
     }
+
+    &.fold {
+      width: 50px;
+    }
   }
   .layout_tabbar {
     position: fixed;
@@ -62,6 +80,12 @@ let userStore = useUserStore()
     background-color: #ffffff;
     top: 0px;
     left: 260px;
+    transition: all 0.5s;
+
+    &.fold {
+      width: calc(100vw - 50px);
+      left: 50px;
+    }
   }
   .layout_main {
     position: absolute;
@@ -72,6 +96,12 @@ let userStore = useUserStore()
     top: 50px;
     overflow: auto;
     padding: 20px;
+    transition: all 0.5s;
+
+    &.fold {
+      width: calc(100vw - 50px);
+      left: 50px;
+    }
   }
 }
 </style>

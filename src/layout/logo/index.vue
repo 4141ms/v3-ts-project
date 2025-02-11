@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup name="logo" lang="ts">
+<script setup name="Logo" lang="ts">
 // 引入项目logo | 标题配置
 import setting from '@/setting'
 </script>
@@ -17,11 +17,11 @@ import setting from '@/setting'
   color: white;
   display: flex;
   align-items: center;
-  padding: 20px;
-  justify-content: center;
+  padding: 10px;
+  overflow: hidden;
   img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 10px;
   }
   p {
