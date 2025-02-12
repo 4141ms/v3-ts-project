@@ -27,6 +27,7 @@ import setting from '@/setting'
   p {
     font-size: 20px;
     margin-left: 10px;
+    white-space: nowrap;
   }
 }
 </style>

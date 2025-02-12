@@ -1,7 +1,7 @@
 <template>
   <div class="layout_container">
     <!-- left menu -->
-    <div class="layout_slider" :class="{ fold: layoutSetting.fold }">
+    <div class="layout_slider">
       <Logo />
       <!-- 展示菜单 -->
       <!-- 滚动组件 -->
@@ -42,7 +42,6 @@ let layoutSetting = useLayoutSettingStore()
 
 // 获取路由对象
 let $router = useRoute()
-console.log($router.fullPath)
 </script>
 
 <style scope>
@@ -55,7 +54,6 @@ console.log($router.fullPath)
     width: 260px;
     height: 100vh;
     background-color: #f56c6c;
-    transition: all 0.5s;
 
     .scrollbar {
       width: 100%;
@@ -67,10 +65,6 @@ console.log($router.fullPath)
       .el-menu {
         border-right: none;
       }
-    }
-
-    &.fold {
-      width: 50px;
     }
   }
   .layout_tabbar {

@@ -4,9 +4,9 @@ import { defineStore } from 'pinia'
 import type { loginForm, loginResponseData } from '../../api/user/type'
 import type { UserState } from './types/type'
 // 引入操纵本地存储的工具方法
-import { SET_TOKEN, GET_TOKEN } from '@/utils/token'
+import { SET_TOKEN, GET_TOKEN, REMOVE_TOKEN } from '@/utils/token'
 // 引入接口
-import { reqLogin } from '@/api/user'
+import { reqLogin, reqUserInfo } from '@/api/user'
 // 引入路由（常量路由）
 import { constantRoute } from '../../router/routers'
 
@@ -16,6 +16,8 @@ let useUserStore = defineStore('User', {
     return {
       token: GET_TOKEN(),
       menuRoutes: constantRoute, //仓库存储生成菜单需要数组（路由）
+      username: '',
+      avatar: '',
     }
   },
   // 异步 | 逻辑的地方
@@ -38,6 +40,27 @@ let useUserStore = defineStore('User', {
         // 返回失败的
         return Promise.reject(new Error(result.data.message))
       }
+    },
+    // 获取用户信息方法
+    async userInfo() {
+      //获取用户信息并存储到仓库中
+      let result = await reqUserInfo()
+      // 用户信息获取成功，存储用户信息
+      if (result.code == 200) {
+        this.username = result.data.checkUser.username
+        this.avatar = result.data.checkUser.avatar
+        return 'ok'
+      } else {
+        return Promise.reject('获取用户信息失败')
+      }
+    },
+    // 退出登录
+    userLogout() {
+      // 目前没有mock接口：退出登录接口（通知服务器本地用户唯一标识失效）
+      this.username = ''
+      this.token = ''
+      this.avatar = ''
+      REMOVE_TOKEN()
     },
   },
   getters: {},

@@ -48,12 +48,14 @@
 import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 import useUserStore from '../../store/modules/user.ts'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { ElNotification } from 'element-plus'
 // 引入获取当前时间的函数
 import { getTime } from '@/utils/time.ts'
 // 获取路由器
 let $router = useRouter()
+let $route = useRoute()
+
 // 获取表单检验对象
 let loginForms = ref()
 const userStore = useUserStore()
@@ -71,7 +73,9 @@ const login = async () => {
     // 保证登录成功
     await userStore.userLogin(loginForm)
     // 编程式导航跳转到展示数据的首页
-    $router.push('/')
+    // 判断登录的时候路由路径中是否有query参数，如果有就跳到query参数路由
+    let redirect: string = $route.query.redirect as string
+    $router.push({ path: redirect || '/' })
     // 登录成功提示信息
     ElNotification({
       type: 'success',

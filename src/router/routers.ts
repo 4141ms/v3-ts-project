@@ -17,9 +17,9 @@ export const constantRoute = [
     component: () => import('@/layout/index.vue'),
     name: 'layout', //命名路由
     meta: {
-      title: 'layout',
+      // title: 'layout',
       hidden: false,
-      icon: 'Discount',
+      // icon: 'Discount',
     },
     redirect: '/home',
     children: [
@@ -77,6 +77,7 @@ export const constantRoute = [
       hidden: false,
       icon: 'Lock',
     },
+    redirect: '/acl/user', //访问一级路由时，重定向到二级路由的第一个
     children: [
       {
         path: '/acl/user',
@@ -120,6 +121,7 @@ export const constantRoute = [
       hidden: false,
       icon: 'Goods',
     },
+    redirect: '/product/trademark',
     children: [
       {
         path: '/product/trademark',
@@ -158,7 +160,7 @@ export const constantRoute = [
         meta: {
           title: 'SPU管理',
           hidden: false,
-          icon: 'Calender',
+          icon: 'Calendar',
         },
       },
     ],
