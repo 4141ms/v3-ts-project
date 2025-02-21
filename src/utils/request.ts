@@ -14,6 +14,7 @@ request.interceptors.request.use((config) => {
   let userStore = useUserStore()
   if (userStore.token) {
     config.headers.token = userStore.token
+    config.headers['Authorization'] = 'Bearer ' + userStore.token
   }
 
   //config配置对象，headers属性请求头，经常给服务器端携带公共参数
@@ -29,7 +30,6 @@ request.interceptors.response.use(
   },
   (error) => {
     //失败的回调：处理http网络错误
-
     let message = ''
     let status = error.response.status
     switch (status) {

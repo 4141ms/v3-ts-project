@@ -26,7 +26,7 @@ app.use(ElementPlus, {
   locale: zhCn,
 })
 
-// console.log("查看运行环境配置",import.meta.env)
+console.log('查看运行环境配置', import.meta.env)
 
 // 安装仓库
 app.use(pinia)

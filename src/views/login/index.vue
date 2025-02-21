@@ -59,7 +59,7 @@ let $route = useRoute()
 // 获取表单检验对象
 let loginForms = ref()
 const userStore = useUserStore()
-let loginForm = reactive({ username: 'admin', password: '111111' })
+let loginForm = reactive({ username: 'admin1', password: '123456' })
 // 定义变量控制按钮加载效果
 let loading = ref(false)
 // 登录按钮回调
